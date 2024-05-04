@@ -8,8 +8,9 @@ import 'package:shopping_list/widget/text_style.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'dart:async';
-import 'add_item.dart';
-import 'item.dart';
+import '../features/add_item/model/item_model.dart';
+import '../features/add_item/ui/add_item.dart';
+import '../features/shopping_list/ui/widgets/shopping_list_appbar.dart';
 
 class ShoppingList extends StatefulWidget {
   const ShoppingList({
@@ -353,33 +354,12 @@ class _ShoppingListState extends State<ShoppingList> {
     );
   }
 
-  appBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: const Color(0xffF6F6F6),
-      toolbarHeight: 12.0,
-      bottom: TabBar(
-        indicatorColor: const Color(0xffEFCB0F),
-        indicatorWeight: 3,
-        tabs: [
-          Tab(
-            height: 100,
-            child: tabDesign('Shopping', Icons.shopping_cart_outlined),
-          ),
-          Tab(
-              height: 100,
-              child: tabDesign('Buying', Icons.shopping_bag_outlined)),
-        ],
-      ),
-    );
-  }
-
   tasksDesign(BuildContext context) {
     if (_incompleteTasks.isEmpty) {
       return Column(
         children: [
-           SizedBox(
-            height:MediaQuery.of(context).size.width * 0.2,
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.2,
           ),
           Align(
             alignment: Alignment.center,
@@ -426,29 +406,5 @@ class _ShoppingListState extends State<ShoppingList> {
         ),
       );
     }
-  }
-
-  tabDesign(String title, IconData icon) {
-    return Column(
-      children: [
-        Icon(
-          icon,
-          color: const Color(0xffEFCB0F),
-          size: 40,
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          title,
-          style: const ArabicTextStyle(
-            arabicFont: ArabicFont.dinNextLTArabic,
-            color: Colors.black38,
-            fontWeight: FontWeight.w600,
-            fontSize: 18,
-          ),
-        ),
-      ],
-    );
   }
 }

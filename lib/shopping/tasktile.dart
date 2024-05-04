@@ -1,19 +1,15 @@
 import 'package:arabic_font/arabic_font.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_list/widget/text_style.dart';
-import 'item.dart';
 
-// ignore: must_be_immutable
+import '../features/add_item/model/item_model.dart';
+
 class TaskTile extends StatelessWidget {
   final Item task;
-  void Function()? onPressed;
-  Icon icon;
+  final void Function()? onPressed;
+  final Icon icon;
 
-  TaskTile(
-    this.task,
-    this.onPressed,
-    this.icon,
-  );
+  const TaskTile(this.task, this.onPressed, this.icon, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +44,8 @@ class TaskTile extends StatelessWidget {
               children: [
                 Text(
                   task.price,
-                  style: const  ArabicTextStyle(
-        arabicFont: ArabicFont.dinNextLTArabic,
+                  style: const ArabicTextStyle(
+                    arabicFont: ArabicFont.dinNextLTArabic,
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
@@ -70,8 +66,8 @@ class TaskTile extends StatelessWidget {
               children: [
                 Text(
                   task.quantity,
-                  style: const  ArabicTextStyle(
-        arabicFont: ArabicFont.dinNextLTArabic,
+                  style: const ArabicTextStyle(
+                    arabicFont: ArabicFont.dinNextLTArabic,
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
@@ -79,8 +75,8 @@ class TaskTile extends StatelessWidget {
                 ),
                 Text(
                   task.type,
-                  style: const  ArabicTextStyle(
-        arabicFont: ArabicFont.dinNextLTArabic,
+                  style: const ArabicTextStyle(
+                    arabicFont: ArabicFont.dinNextLTArabic,
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
